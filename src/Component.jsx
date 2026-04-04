@@ -1,27 +1,38 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
 function Component() {
-    const [count, setCount] = useState(0)
-    
-    function handleClick() {
-        setCount(count + 1)
-        if (count == 5) {
-         alert("Value is 5");   
-        }
+  const [count, setCount] = useState(0);
+
+  function handleIncrease() {
+    const newCount = count + 1;
+    setCount(newCount);
+    if (newCount === 10) {
+      alert(`Your Value is ${newCount}`);
     }
-    function handleClick2() {
-        setCount(count - 1)
-        if (count == 0) {
-            confirm("Do you want to decrease counter!")
-        }
+  }
+
+  function handleDecrease() {
+    const newCount = count - 1;
+    if (newCount >= 0) {  // prevent negative values
+      setCount(newCount);
+      if (newCount === 0) {
+        alert(`Your Value is ${newCount}`);
+      }
     }
+  }
+
+  function handleReset() {
+    setCount(0);
+  }
+
   return (
     <>
-        <h1>Count: {count}</h1>
-        <button onClick={handleClick}>Press to + 1</button>
-                <button onClick={handleClick2}>Press to - 1</button>
+      <h1>Counter: {count}</h1>
+      <button onClick={handleIncrease}>Increase</button>
+      <button style={{ marginLeft: 10 }} onClick={handleDecrease}>Decrease</button>
+      <button style={{ marginLeft: 10 }} onClick={handleReset}>Reset</button>
     </>
-  )
+  );
 }
 
-export default Component 
+export default Component;
