@@ -1,10 +1,18 @@
-import Component from "./Component";
+import TodoApp from "./TodoApp"
+import Theme from "./Theme"
+import Clock from "./Clock"
+import UseStateHook from "./UseStateHook"
+import UseEffectHook from "./UseEffectHook"
 
 function App() {
 
   return (
     <>
-      <Component/>  
+      <TodoApp/>
+      <Theme/>
+      <Clock/>
+      <UseStateHook/>
+      <UseEffectHook/>
     </>
   )
 }
